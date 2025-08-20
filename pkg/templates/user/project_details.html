@@ -1,0 +1,119 @@
+{% extends "user/base.html" %}
+{% block content %}
+<style>
+  .card-img-container {
+    aspect-ratio: 4 / 3; /* Forces same height ratio */
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .card-img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .card-img-container img:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" style="background-image: url(/static/img/page-title-bg.jpg);">
+      <div class="container position-relative">
+        <h1>Our Projects</h1>
+        
+        
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Projects Section -->
+    <section class="py-5">
+  <div class="container">
+    <h1 class="fw-bold mb-4">{{ project.title }}</h1>
+    <div class="row g-4">
+
+      <!-- Left: Project Details -->
+      <div class="col-md-4">
+        <div class="border p-3 mb-3">
+    <h6 class="text-muted">DESCRIPTION:</h6>
+    <p class="mb-0 fw-bold justify" style="text-align: justify;">{{ project.full_description }}</p>
+  </div>
+      <div class="border p-3 mb-3">
+      <h6 class="text-muted">CLIENT:</h6>
+      <p class="mb-0 fw-bold">{{ project.client }}</p>
+      </div>
+
+  <div class="border p-3 mb-3">
+    <h6 class="text-muted">LOCATION:</h6>
+    <p class="mb-0 fw-bold">{{ project.location }}</p>
+  </div>
+
+  
+
+  <div class="border p-3 mb-3">
+    <h6 class="text-muted">PROJECT TYPE</h6>
+    <p class="mb-0 fw-bold">{{ project.category }}</p>
+  </div>
+
+  <div class="border p-3 mb-3">
+    <h6 class="text-muted">YEAR COMPLETED</h6>
+    <p class="mb-0 fw-bold">{{ project.year_completed }}</p>
+  </div>
+  
+
+  <div class="border p-4 mb-3 rounded shadow-sm bg-light">
+    <h6 class="text-uppercase text-muted mb-3"><strong>Contact Us</strong></h6>
+    
+    <div class="d-flex flex-wrap gap-2">
+        <!-- WhatsApp Button -->
+        <a href="javascript:void(0);" onclick="contactAdmin()" class="btn btn-success d-flex align-items-center">
+            <i class="fab fa-whatsapp fa-lg me-2"></i> Chat on WhatsApp
+        </a>
+
+        <!-- Email Button -->
+        <a href="mailto:inquiry@crownbuilder.com?subject=Building%20Inquiry&body=Hello%20Crown%20Builder,%0A%0AI%20am%20interested%20in%20your%20building%20project.%20Could%20you%20please%20provide%20more%20details?" 
+           target="_blank" 
+           class="btn btn-primary d-flex align-items-center">
+            <i class="fas fa-envelope fa-lg me-2"></i> Send an Email
+        </a>
+    </div>
+</div>
+</div>
+
+
+      
+      <!-- Right: Image Grid -->
+<div class="col-md-8">
+  <div class="row g-3">
+    {% for image in project.images %}
+    <div class="col-6 col-md-4">
+      <a href="{{ url_for('static', filename='uploads/' ~ image.filename) }}"
+         data-gallery="project-gallery" class="glightbox">
+        <div class="card-img-container">
+          <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}"
+               alt="Project Image">
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+  </main>
+<script>
+    function contactAdmin() {
+        const projectName = "{{ project.title }}";
+        const message = `Hello Crown Builders,%0A%0AI am interested in your "${projectName}" project.%0ACould you please provide more details about it, including pricing and delivering timeframe?%0A%0AThank you.`;
+        window.open(`https://wa.me/+2348020776010?text=${message}`, '_blank');
+    }
+</script>
+  
+{% endblock content %}

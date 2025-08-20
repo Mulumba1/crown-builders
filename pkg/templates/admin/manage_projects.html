@@ -1,0 +1,45 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="container mt-4">
+    <div class="mb-3">
+        <div class="d-flex justify-content-between">
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn btn-outline-success">
+            <i class="fas fa-arrow-left"></i> 
+        </a>
+        <a href="{{ url_for('add_project') }}" class="btn btn-outline-success">
+            <i class="fas fa-plus"></i> 
+        </a>
+        </div>
+    </div>
+    <h2 class="heading-style">
+        <i class="fas fa-building"></i> Manage Projects
+    </h2>
+    
+
+   
+    <form id="search-form" method="GET" action="{{ url_for('manage_projects') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" id="search-input" name="search" class="form-control" placeholder="Search by name..." value="{{ search_query }}">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </form>
+    
+    <!-- Projects Table (Loaded via AJAX) -->
+    <div id="projects-container">
+        {% include 'admin/projects_table.html' %}
+    </div>
+
+    
+    
+
+    
+</div>
+
+
+
+{% endblock %}

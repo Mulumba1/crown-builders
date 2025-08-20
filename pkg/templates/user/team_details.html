@@ -1,0 +1,49 @@
+{% extends "user/base.html" %}
+{% block content %}
+
+<style>
+    .team-member img {
+        max-height: 400px; 
+        object-fit: cover; 
+        border: 5px solid #fff; 
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .team-member img:hover {
+        transform: scale(1.05); 
+    }
+
+    .team-member-description {
+        text-align: justify; 
+        padding: 20px; 
+    }
+</style>
+<div class="page-title dark-background" style="background-image: url(/static/img/page-title-bg.jpg);">
+      <div class="container position-relative">
+        <h1>Our Team</h1>
+        
+
+      </div>
+    </div>
+
+<section class="section bg-light">
+  
+
+<div class="row d-flex justify-content-center align-items-center gap-5 pt-5">
+    <div class="col-md-3">
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='uploads/team/' ~ team.image) }}" class="img-fluid shadow-lg" alt="Catherine Ede">
+        </div>
+    </div>
+
+    <!-- Team Member Description -->
+    <div class="col-md-6 team-member-description">
+        <h4 class="text-center fw-bold text-primary"> {{ team.name }}</h4>
+        <h5 class="text-center fw-bold text-secondary mb-3">{{ team.position }}</h5>
+        <p class="fs-5 lh-lg" style="text-align: justify;">{{ team.description }}</p>
+        
+    </div>
+    
+</div>
+</section>
+{% endblock %}

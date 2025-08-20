@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Home - Crown Builders Consult & Development Limited</title>
+  
+  <!-- OG Meta Tags -->
+  <meta property="og:title" content="Crown Builders Consult & Development Ltd">
+  <meta property="og:description" content="Crown Builders Consult & Development Ltd is Nigeria’s trusted company specialized in house building, estate development, architectural design, land survey, floor stamping, and supply of building materials.">
+  <meta property="og:image" content="https://crownbuilders.com.ng/static/img/construct6.jpg">
+  <meta property="og:url" content="https://crownbuilders.com.ng/">
+  <meta property="og:type" content="website">
+  <meta name="author" content="Mulumba Uchenna Ede, Software Developer for Crown Builders Consult & Development Ltd">
+  <meta name="keywords" content="Expert and professional builders, Crown Builders, house building, estate development, architectural design, land survey, floor stamping, cheap and affordable building materials supply, property development Nigeria">
+
+
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crown Builders Consult & Development Ltd">
+  <meta name="twitter:description" content="Your trusted partner in building, renovation, and estate development.">
+  <meta name="twitter:image" content="https://crownbuilders.com.ng/static/img/og-image.jpg">
+
+  <!-- Social Media Profiles -->
+  <link rel="me" href="https://www.facebook.com/crownbuildersconsult">
+  <link rel="me" href="https://www.instagram.com/crownbuilders49">
+  <!-- <link rel="me" href="https://www.linkedin.com/company/crownbuildersng"> -->
+  <link rel="me" href="https://www.tiktok.com/@crownbuilders22">
+
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.jpg') }}" rel="icon">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+<!-- Main CSS File -->
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+<link rel="canonical" href="{{ url_for('home', _external=True) }}">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Crown Builders Consult & Development Ltd",
+    "url": "https://www.crownbuildersng.com",
+    "logo": "https://www.crownbuildersng.com/static/img/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/crownbuildersng",
+      "https://www.instagram.com/crownbuildersng",
+      "https://www.linkedin.com/company/crownbuildersng",
+      "https://www.tiktok.com/@crownbuildersng"
+    ]
+  }
+  </script>
+</head>
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{url_for('home')}}" class="logo d-flex flex-column align-items-start">
+  <!-- Optional: <img src="static/img/logo4.png" alt=""> -->
+  <div>
+    <h1 class="sitename m-0">Crown Builders</h1>
+    <span class="tagline fw-bold">Consult & Development Limited</span>
+  </div>
+</a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{url_for('home')}}" class="active fw-bold">Home</a></li>
+          <li class="dropdown"><a href="#" class="fw-bold"><span>About</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{{url_for('about')}}" class="fw-bold">Who We Are</a></li>
+              <li><a href="{{url_for('about')}}" class="fw-bold">Our Guiding Principles</a></li>
+              <li><a href="{{url_for('about')}}" class="fw-bold">Why You Should Trust Us</a></li>
+              <li><a href="{{url_for('team_members')}}" class="fw-bold">Meet our Team</a></li>
+            </ul>
+          </li>
+          
+          <li class="dropdown"><a href="#" class="fw-bold"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{{url_for('projects')}}" class="fw-bold">Building Construction & Renovation</a></li>
+              <li><a href="{{url_for('designs')}}" class="fw-bold">Architectural Designs</a></li>
+              <li><a href="{{url_for('services')}}" class="fw-bold">Estate Management</a></li>
+              <li><a href="{{url_for('services')}}" class="fw-bold">Land Surveying</a></li>
+              <li><a href="{{url_for('floor_stamping')}}" class="fw-bold">Increte Floor Stamping</a></li>
+              <li><a href="{{url_for('landscape')}}" class="fw-bold">Landscaping</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{{url_for('contact')}}" class="fw-bold">Contact</a></li>
+          <li><a href="{{url_for('register_admin')}}" class="fw-bold">Register</a></li>
+          <li><a href="{{url_for('admin_login')}}" class="fw-bold">Login</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+    
+    {% block content %}
+    {% endblock content %}
+
+
+
+<footer id="footer" class="footer dark-background">
+  <div class="container footer-top py-3"> 
+    <div class="row gy-3"> 
+
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="index.html" class="logo d-flex align-items-center mb-2"> 
+          <span class="sitename fs-4 fw-bold">Crown Builders</span> 
+        </a>
+        <div class="footer-contact pt-1"> 
+          <p class="mb-1">3, IDOWU CLOSE, OFF ILE -OGBO</p>
+          <p class="mb-2">SUBERU OJE, LAGOS STATE, NIGERIA</p> 
+          <p class="mb-1"><strong>Phone:</strong> <span class="ms-1">+2347065660258, +2348020776010</span></p>
+          <p class="mb-0"><strong>Email:</strong> <span class="ms-1">info@crownbuilders.com</span></p>
+        </div>
+        <div class="social-links d-flex mt-3"> 
+          <a href="#" class="me-3 text-white-50"><i class="bi bi-twitter-x fs-6"></i></a> 
+          <a href="https://www.facebook.com/profile.php?id=100063726320232" class="me-3 text-white-50"><i class="bi bi-facebook fs-6"></i></a>
+          <a href="https://www.instagram.com/crownbuilders49/?hl=en" class="me-3 text-white-50"><i class="bi bi-instagram fs-6"></i></a>
+          <a href="#" class="text-white-50"><i class="bi bi-linkedin fs-6"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4 class="text-white mb-2 fs-6">Useful Links</h4> 
+        <ul class="list-unstyled">
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('home')}}" class="text-white-50 text-decoration-none  fw-bold">Home</a></li> 
+          <li class="mb-1"><i class="bi bi-chevron-right me-2 "></i> <a href="{{url_for('about')}}" class="text-white-50 text-decoration-none fw-bold">About Us</a></li>
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('services')}}" class="text-white-50 text-decoration-none fw-bold">Services</a></li>
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('contact')}}" class="text-white-50 text-decoration-none fw-bold">Contact</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-3 footer-links">
+        <h4 class="text-white mb-2 fs-6">Our Services</h4> 
+        <ul class="list-unstyled">
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('designs')}}" class="text-white-50 text-decoration-none fw-bold">Architectural Designs</a></li> 
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('projects')}}" class="text-white-50 text-decoration-none fw-bold">Building Construction & Renovation</a></li>
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('services')}}" class="text-white-50 text-decoration-none fw-bold">Estate Management</a></li>
+          <li class="mb-1"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('services')}}" class="text-white-50 text-decoration-none fw-bold">Land Surveying</a></li>
+          <li class="mb-0"><i class="bi bi-chevron-right me-2"></i> <a href="{{url_for('floor_stamping')}}" class="text-white-50 text-decoration-none fw-bold">Increte Floor Stamping</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-12 footer-newsletter">
+        <h4 class="text-white mb-2 fs-5">Quick Inquiry</h4> 
+        <p class="text-white-50 mb-2 fw-bold">Have a project in mind? Drop us a message!</p>
+        <form action="" method="post" class="email-form">
+          <div class="input-group mb-2"> 
+            <input type="email" name="email" class="form-control form-control-sm" placeholder="Your email" aria-label="Your email"> 
+            <button type="submit" class="btn btn-warning btn-sm">Send</button>
+          </div>
+        </form>
+        <p class="text-white-50 fw-bold mt-1">We respect your privacy and will not share your email.</p> 
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container copyright text-center py-2 border-top border-secondary"> 
+    <p class="text-white-50 mb-0 fw-bold">&copy; <span id="currentYear"></span> <strong class="px-1 sitename text-white">Crown Builders</strong>. All Rights Reserved</p> 
+  </div>
+
+</footer>
+
+<script>
+  document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+</script>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
+
+<!-- Main JS File -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+
+
+</html>

@@ -1,0 +1,46 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Edit Project</h2>
+    <form id="project-form" action="{{ url_for('edit_project', id=project.id) }}" 
+      method="POST" enctype="multipart/form-data" class="email-form p-4 shadow rounded bg-white">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="name" value="{{ project.title }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="short_description" class="form-label">Short Description</label>
+        <textarea class="form-control" id="short_description" name="short_description" rows="2">{{ project.short_description }}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="full_description" class="form-label">Full Description</label>
+        <textarea class="form-control" id="full_description" name="full_description" rows="4">{{ project.full_description }}</textarea>
+    </div>
+
+    <h5>Existing Images</h5>
+    <div class="row">
+        {% for image in project.images %}
+        <div class="col-md-3 text-center">
+            <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" class="img-thumbnail mb-2">
+            <div>
+                <input type="checkbox" name="delete_images" value="{{ image.id }}"> Delete
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="images" class="form-label">Add Images (Max 30 total)</label>
+        <input type="file" name="images" id="images" class="form-control" multiple>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Update Project</button>
+    <a href="{{ url_for('manage_projects') }}" class="btn btn-secondary">Cancel</a>
+</form>
+</div>
+{% endblock %}

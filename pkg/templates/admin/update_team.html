@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="mb-4 text-center">Update Team Member</h2>
+
+            <form action="{{ url_for('update_team', id=member.id) }}" method="POST" enctype="multipart/form-data" class="border rounded p-4 shadow-sm bg-white">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-bold">Full Name</label>
+                    <input type="text" name="name" id="name" value="{{ member.name }}" class="form-control" required>
+                </div>
+
+                <!-- Role -->
+                <div class="mb-3">
+                    <label for="role" class="form-label fw-bold">Position</label>
+                    <input type="text" name="position" id="position" value="{{ member.position }}" class="form-control" required>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label fw-bold">Description</label>
+                    <textarea name="description" id="description" class="form-control" rows="7" required>{{ member.description }}</textarea>
+                </div>
+
+                <!-- Profile Picture -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Profile Picture</label>
+                    <input type="file" name="photo" class="form-control">
+                    {% if member.image %}
+                        <div class="mt-2">
+                            <small>Current Image:</small><br>
+                            <img src="{{ url_for('static', filename='uploads/team/' + member.image) }}" alt="Profile Image" width="100" class="rounded">
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100">Update Team Member</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "admin/base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold">Team Members</h3>
+        <a href="{{ url_for('add_team_member') }}" class="btn btn-outline-success">
+            <i class="fas fa-plus"></i> 
+        </a>
+        
+    </div>
+
+    {% if members %}
+    <div class="row g-4">
+        {% for member in members %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{{ url_for('static', filename='uploads/team/' ~ member.image) }}" 
+                     class="card-img-top" 
+                     style="height: 250px; object-fit: cover;" 
+                     alt="{{ member.name }}">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ member.name }}</h5>
+                    <p class="text-primary mb-1">{{ member.position }}</p>
+                    <p class="text-muted small" style="text-align: justify;">
+                        {{ member.description[:120] }}{% if member.description|length > 120 %}...{% endif %}
+                    </p>
+                </div>
+                <div class="card-footer bg-white border-0 d-flex justify-content-between">
+                    <a href="{{ url_for('update_team', id=member.id) }}" class="btn btn-outline-warning"> <i class="fas fa-edit"></i>Update </a>
+                    
+                    <button class="btn btn-outline-danger" onclick="deleteMember({{member.id }})"><i class="fas fa-trash"></i>Delete </button>
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info text-center">
+        No team members found. <a href="{{ url_for('add_team_member') }}">Add one now</a>.
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    function deleteMember(memberId) {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`/admin/team/delete/${memberId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken 
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire("Deleted!", data.message, "success");
+                    location.reload();
+                }
+            });
+        }
+    });
+}
+</script>
+{% endblock %}

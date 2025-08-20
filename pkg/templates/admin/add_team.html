@@ -1,0 +1,39 @@
+{% extends "admin/base.html" %}
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="row gy-4 w-100 justify-content-center">
+        <div class="col-lg-6">
+            <h1 class="text-center">Add Team Member</h1>
+            <form action="{{ url_for('add_team_member') }}" method="post" class="p-4 shadow rounded bg-white" enctype="multipart/form-data">
+                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="position" class="form-label">Position</label>
+                    <input type="text" name="position" id="position" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" rows="4" class="form-control"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Profile Image</label>
+                    <input type="file" name="image" id="image" class="form-control" accept="image/*" required>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary w-100">Add Member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

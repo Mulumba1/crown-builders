@@ -1,0 +1,237 @@
+{% extends "user/base.html" %}
+{% block content %}
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-6 text-center">
+              <h2>Crown Builders</h2>
+              <p class="fw-bold fs-4">Building dreams, shaping skylines. Crown Builders combine excellence, innovation, and integrity to deliver construction solutions that stand the test of time. Whether it's residential, commercial, or industrial, we don’t just build structures—we build legacies.</p>
+              <a href="{{url_for('services')}}" class="btn-get-started">Our Services</a>
+              <a href="{{url_for('projects')}}" class="btn-get-started">View Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item">
+          <img src="static/img/hero-carousel/hero-carousel-1.jpg" alt="">
+        </div>
+
+        <div class="carousel-item active">
+          <img src="static/img/hero-carousel/hero-carousel-2.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="static/img/hero-carousel/hero-carousel-3.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="static/img/hero-carousel/hero-carousel-4.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+          <img src="static/img/hero-carousel/hero-carousel-5.jpg" alt="">
+        </div>
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+
+
+    <section id="about-us-intro" class="about-us-intro section py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="static/img/construct5.jpg" class="img-fluid rounded shadow-lg" alt="Team discussing construction plans">
+          </div>
+          <div class="col-lg-6">
+            <h2 class="display-5 fw-bold mb-4">About Crown Builders Consult Development Limited</h2>
+            <p class="mb-4 fs-5" style="text-align: justify;"> 
+              Crown Builders is a dynamic and innovative construction company, dedicated to delivering high-quality building and development solutions across Nigeria. Established with a commitment to excellence, we've built a reputation for transforming visions into reality.
+            </p>
+            <p class="mb-4 fs-5" style="text-align: justify;">
+              Our expertise spans a wide range of services, including general building construction, architectural design, renovation, estate management, landscaping, and land surveying. We pride ourselves on combining technical prowess with creative solutions, leveraging modern technology and sustainable practices to ensure every project is built to last and exceeds expectations.
+            </p>
+            <a href="{{ url_for('about') }}" class="btn btn-outline-warning btn-lg rounded-pill">Learn More About Us <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>---
+
+    <section id="services" class="services section light-background py-5">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="display-5 fw-bold">Our Core Services</h2>
+        
+      </div>
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative p-4 rounded shadow-sm">
+              <div class="icon mb-3">
+                <i class="fa-solid fa-mountain-city display-4 text-primary"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Architectural Designs</h3>
+              <p class="mb-3 fs-5">We deliver expert Architectural design services that merge beauty with buildability. Our team transforms your vision into functional, inspiring architecture for residential, commercial, or industrial spaces.</p>
+              <a href="{{url_for('designs')}}" class="readmore stretched-link fw-bold">Explore Designs <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative p-4 rounded shadow-sm">
+              <div class="icon mb-3">
+                <i class="fa-solid fa-hard-hat display-4 text-success"></i> 
+              </div>
+              <h3 class="h5 fw-bold mb-3">Building Construction & Renovation</h3>
+              <p class="mb-3 fs-5">We offer comprehensive building construction and renovation services, turning concepts into reality. From groundbreaking to finishing touches, we manage every phase with precision, quality, and a commitment to timelines.</p>
+              <a href="{{url_for('projects')}}" class="readmore stretched-link fw-bold">Discover Projects <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative p-4 rounded shadow-sm">
+              <div class="icon mb-3">
+                <i class="fa-solid fa-tree display-4 text-info"></i> 
+              </div>
+              <h3 class="h5 fw-bold mb-3">Landscaping Services</h3>
+              <p class="mb-3 fs-5">We transform outdoor areas into lush, relaxing, and functional spaces that blend beauty and purpose. Our landscaping services enhance the value and visual appeal of both residential and commercial properties.</p>
+              <a href="{{url_for('landscape')}}" class="readmore stretched-link fw-bold">View Landscaping <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative p-4 rounded shadow-sm">
+              <div class="icon mb-3">
+                <i class="fa-solid fa-building display-4 text-warning"></i> 
+              </div>
+              <h3 class="h5 fw-bold mb-3">Estate Management</h3>
+              <p class="mb-3 fs-5">Crown Builders offers professional estate management services designed to protect your property and maximize its value. We provide tailored solutions for residential estates, commercial complexes, and mixed-use properties.</p>
+              <a href="{{url_for('services')}}" class="readmore stretched-link fw-bold">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative p-4 rounded shadow-sm">
+              <div class="icon mb-3">
+                <i class="fa-solid fa-map-marked-alt display-4 text-danger"></i> 
+              </div>
+              <h3 class="h5 fw-bold mb-3">Land Surveying</h3>
+              <p class="mb-3 fs-5">Our licensed land surveyors bring accuracy and professionalism to every project. Using modern equipment and techniques, we help evaluate and document land boundaries and features for individuals and organizations.</p>
+              <a href="{{url_for('services')}}" class="readmore stretched-link fw-bold">Get a Survey <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative p-4 rounded shadow-sm">
+              <div class="icon mb-3">
+                <i class="fa-solid fa-brush display-4 text-secondary"></i> 
+              </div>
+              <h3 class="h5 fw-bold mb-3">Increte Floor Stamping</h3>
+              <p class="mb-3 fs-5">Add elegance and durability to your surfaces with our Increte floor stamping services. This decorative concrete finish replicates natural materials like stone, brick, or wood, combining beauty with concrete strength.</p>
+              <a href="{{url_for('floor_stamping')}}" class="readmore stretched-link fw-bold">See Finishes <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div></div>
+
+      </div>
+
+    </section>
+
+
+
+
+<div class="container section-title" data-aos="fade-up">
+        <h2 class="display-5 fw-bold">Contact Us</h2>
+        
+      </div>
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>  
+              <p class="fs-5">3, IDOWU CLOSE, OFF ILE -OGBO</p>
+              <p class="fs-5">SUBERU OJE, LAGOS STATE, NIGERIA</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p class="fs-5">+2348020776010</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p class="fs-5">info@crownbuilders.com</p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <div class="row gy-4 mt-1">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.823967513452!2d3.227331374046055!3d6.543899922927915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b851709910647%3A0x1b6bc054d89f493a!2s3%20Idowu%20Cl%2C%20Ikotun%2C%20Lagos%20102213%2C%20Lagos!5e0!3m2!1sen!2sng!4v1752915771801!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div><!-- End Google Maps -->
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="email-form" data-aos="fade-up" data-aos-delay="400">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  
+
+                  <button type="submit">Send Message</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+
+   </main>
+
+{% endblock content %}

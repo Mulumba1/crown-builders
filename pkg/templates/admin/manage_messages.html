@@ -1,0 +1,153 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="mb-3">
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-dark shadow-sm">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <h2 class="text-center heading-style">
+        <i class="fas fa-envelope"></i> Manage Contact Messages
+    </h2>
+
+    <!-- Search -->
+    <form id="search-form" class="mb-3">
+        <div class="input-group">
+            <input type="text" id="search-input" name="search" class="form-control" 
+                   placeholder="Search by name..." value="{{ search_query }}">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    </form>
+
+    <!-- Messages Table (Loaded via AJAX) -->
+    <div id="messages-container">
+        {% include 'admin/messages_table.html' %}
+    </div>
+</div>
+
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    function fetchMessages(page = 1) {
+        const searchQuery = document.getElementById("search-input").value;
+        fetch(`{{ url_for('manage_messages') }}?search=${encodeURIComponent(searchQuery)}&page=${page}`, {
+            headers: { "X-Requested-With": "XMLHttpRequest" }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("messages-container").innerHTML = data.html;
+            addPaginationListeners();
+            bindReplyForms();
+            bindDeleteButtons();
+        })
+        .catch(err => console.error(err));
+    }
+
+    function addPaginationListeners() {
+        document.querySelectorAll(".pagination-link").forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                fetchMessages(this.getAttribute("data-page"));
+            });
+        });
+    }
+
+    function bindDeleteButtons() {
+        document.querySelectorAll(".delete-btn").forEach(btn => {
+            btn.addEventListener("click", function () {
+                const messageId = this.dataset.id;
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch(`/admin/messages/delete/${messageId}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRFToken": csrfToken
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire("Deleted!", data.message, "success");
+                                fetchMessages();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    }
+
+    function bindReplyForms() {
+        document.querySelectorAll(".reply-form").forEach(form => {
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                fetch(this.action, {
+                    method: "POST",
+                    body: new FormData(this),
+                    headers: { "X-Requested-With": "XMLHttpRequest" }
+                })
+                .then(response => {
+                    if (response.headers.get("content-type")?.includes("application/json")) {
+                        return response.json();
+                    } else {
+                        window.location.reload();
+                        throw new Error("Non-JSON response received, page will reload.");
+                    }
+                })
+                .then(data => {
+                    if (data.status === "success") {
+                        const messageId = form.querySelector('input[name="message_id"]').value;
+                        const tableRow = document.querySelector(`[data-message-id="${messageId}"]`);
+                        if (tableRow) tableRow.classList.remove("fw-bold");
+
+                        const unreadCounter = document.getElementById("unreadCounter");
+                        if (unreadCounter && data.unread_count !== undefined) {
+                            unreadCounter.innerText = data.unread_count;
+                        }
+
+                        bootstrap.Modal.getInstance(document.getElementById(`replyModal${messageId}`))?.hide();
+
+                        Swal.fire("Success", "Reply sent and message marked as read!", "success");
+                    } else {
+                        Swal.fire("Error", data.message, "error");
+                    }
+                })
+                .catch(err => console.error(err));
+            });
+        });
+    }
+
+    // Bind initial events
+    document.getElementById("search-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        fetchMessages();
+    });
+
+    document.getElementById("search-input").addEventListener("keyup", function () {
+        fetchMessages();
+    });
+
+    addPaginationListeners();
+    bindReplyForms();
+    bindDeleteButtons();
+});
+</script>
+{% endblock %}

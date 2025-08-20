@@ -1,0 +1,95 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Add Design</h2> 
+    <div class="row gy-4 w-100 justify-content-center">
+        <div class="col-lg-10">
+
+            <form id="design-form" action="{{ url_for('add_design') }}" method="POST" class="email-form p-4 shadow rounded bg-white" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Design Title</label>
+                    <input type="text" name="title" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Short Description</label>
+                    <textarea name="short_description" class="form-control" rows="2" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Full Description</label>
+                    <textarea name="full_description" class="form-control" rows="4"></textarea>
+                </div>
+
+                
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Location</label>
+                    <input type="text" name="location" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Category</label>
+                    <select name="category" class="form-select" required>
+                        <option value="">-- Select Category --</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Hotel">Hotel</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Factory">Factory</option>
+                        <option value="Hostel">Hostel</option>
+                    </select>
+                </div>
+
+                
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Upload Images</label>
+                    <input type="file" class="form-control" name="images" id="image-upload" multiple accept="image/*">
+                    <small class="text-muted">You can upload multiple images.</small>
+                    <div id="selected-images" class="mt-2"></div>
+                    <div id="imagePreview" class="mt-2 d-flex"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Design</button>
+                <a href="{{ url_for('manage_designs') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Image Handling -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.getElementById('image-upload').addEventListener('change', function (event) {
+    const imagePreview = document.getElementById('imagePreview');
+    const selectedImages = document.getElementById('selected-images');
+
+    imagePreview.innerHTML = "";
+    selectedImages.innerHTML = "";
+
+    const files = Array.from(event.target.files);
+
+    files.forEach((file) => {
+        if (!file.type.startsWith("image/")) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.classList.add('img-thumbnail', 'm-1');
+            img.style.width = "100px";
+            img.style.cursor = "pointer";
+            imagePreview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+
+        const fileName = document.createElement('span');
+        fileName.textContent = file.name + " | ";
+        selectedImages.appendChild(fileName);
+    });
+});
+</script>
+{% endblock %}

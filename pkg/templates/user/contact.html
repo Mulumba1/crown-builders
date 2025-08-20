@@ -1,0 +1,135 @@
+{% extends "user/base.html" %}
+{% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" style="background-image: url(/static/img/page-title-bg.jpg);">
+      <div class="container position-relative">
+        <h1>Contact Us</h1>
+        
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>  
+              <p class="fs-5">3, IDOWU CLOSE, OFF ILE -OGBO</p>
+              <p class="fs-5">SUBERU OJE, LAGOS STATE, NIGERIA</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p class="fs-5 text-center">+2347065660258 +2348020776010</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p class="fs-5">info@crownbuilders.com</p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <div class="row gy-4 mt-1">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.823967513452!2d3.227331374046055!3d6.543899922927915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b851709910647%3A0x1b6bc054d89f493a!2s3%20Idowu%20Cl%2C%20Ikotun%2C%20Lagos%20102213%2C%20Lagos!5e0!3m2!1sen!2sng!4v1752915771801!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div><!-- End Google Maps -->
+
+          <div class="col-lg-6">
+            <form action="{{url_for('contact')}}" method="post" class="email-form" data-aos="fade-up" data-aos-delay="400">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="row gy-4">
+
+    <div class="col-md-12">
+      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+    </div>
+
+    <div class="col-md-6 ">
+      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+    </div>
+
+    <div class="col-md-6">
+      <input type="text" name="phone" class="form-control" placeholder="Phone Number" required="">
+    </div>
+
+    <div class="col-md-12">
+      <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+    </div>
+
+    <div class="col-md-12">
+      <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <button type="submit">Send Message</button>
+    </div>
+
+  </div>
+</form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- Section -->
+
+  </main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.email-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: data.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                    form.reset(); 
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: data.message,
+                        icon: 'error',
+                        confirmButtonText: 'Try Again'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'An unexpected error occurred. Please try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    });
+</script>
+ 
+{% endblock content %}

@@ -1,0 +1,310 @@
+{% extends "user/base.html" %}
+{% block content %}
+<style>
+    li {
+        list-style-type: none;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+  <main class="main">
+
+    <div class="page-title dark-background" style="background-image: url(/static/img/page-title-bg.jpg);">
+      <div class="container position-relative">
+        <h1>Our Services</h1>
+        
+
+      </div>
+    </div>
+    
+    <section id="services" class="services section light-background">
+
+
+    <div class="container">
+
+
+      <div class="row text-center">
+           
+            <div class="col-12 mb-4">
+  <div class="card service-card border-0 shadow-lg p-1" style="min-height: 100%;">
+    <div class="card-body p-4">
+      <h3 class="fw-bold text-center" style="color: #f7b503;">Architectural Designs</h3>
+      <div class="clearfix">
+        <img src="/static/img/architecture1.jpg" class="img-fluid float-start me-4 mb-3" style="max-width: 400px; height: auto; object-fit: cover;" alt="Architectural Designs">
+
+        <p class="fs-5" style="text-align: justify;">
+          We deliver expert architectural design services that merge beauty with buildability,
+          be it developing a residential home, commercial property, or industrial space, our team transforms your vision into functional, inspiring architecture. Our services include:
+        </p>
+
+        
+        <ul class="fs-5 mb-4">
+          <li><span class="fw-bold">Custom Design Concepts:</span> Innovative plans tailored to your unique needs.</li>
+          <li><span class="fw-bold">3D Visualizations:</span> Realistic models to help you see your project before it begins.</li>
+          <li><span class="fw-bold">Client-Centric Collaboration:</span> We listen, plan, and design with your vision in focus.</li>
+          <li><span class="fw-bold">Sustainable Solutions:</span> Eco-conscious and energy-efficient architecture.</li>
+          <li><span class="fw-bold">Precision & Detail:</span> From concept to execution, every line matters.</li>
+        </ul>
+
+        <p class="fs-5" style="text-align: justify;">
+          Choose us for your architectural needs and experience a seamless blend of creativity, sustainability, and structural integrity. 
+          Let us help you design spaces that elevate your lifestyle or business and stand the test of time. 
+        </p>
+
+        <a href="{{url_for('contact')}}"><p class="fs-5 fw-bold text-warning">Contact us today and bring your dream project to life.</p></a>
+        <a href="{{url_for('designs')}}" class="btn btn-outline-warning btn-lg rounded-pill">Explore Our Designs <i class="bi bi-arrow-right"></i></a>
+        
+      </div>
+    </div>
+  </div>
+            </div>
+
+
+
+             <div class="col-12 mb-4">
+  <div class="card service-card border-0 shadow-lg p-1" style="min-height: 100%;">
+    <div class="card-body p-4">
+      <h3 class="fw-bold text-center" style="color: #f7b503;">Building Construction & Renovation</h3>
+      <div class="clearfix">
+        <img src="/static/img/construct6.jpg" class="img-fluid float-start me-4 mb-3" style="max-width: 400px; height: auto; object-fit: cover;" alt="Building Construction and Renovation">
+
+        <p class="fs-5" style="text-align: justify;">
+          At <span class="fw-bold">Crown Builders Limited</span>, we offer comprehensive building construction and renovation services that turn concepts into reality. 
+          From groundbreaking to finishing touches, we manage every phase with precision, quality, and a commitment to timelines. Our construction and renovation services include:
+        </p>
+        <ul class="fs-5 mb-4">
+          <li><span class="fw-bold">Residential & Commercial Builds:</span> From custom homes to multi-storey developments.</li>
+          <li><span class="fw-bold">Structural Renovations:</span> Modernize and upgrade existing properties with expert craftsmanship.</li>
+          <li><span class="fw-bold">Project Management:</span> Efficient execution with minimal delays and maximum results.</li>
+          <li><span class="fw-bold">High-Quality Materials:</span> Durable, industry-standard materials that last.</li>
+          <li><span class="fw-bold">Skilled Workforce:</span> Experienced builders, engineers, and supervisors on every project.</li>
+        </ul>
+
+        <p class="fs-5" style="text-align: justify;">
+          Whether you're building your dream home or renovating an aging structure, we combine innovation with structural excellence to deliver spaces you’ll love. 
+          Your satisfaction is our blueprint for success.
+        </p>
+         <a href="{{url_for('contact')}}"><p class="fs-5 fw-bold text-warning">Let’s build something great together. Contact Crown Builders today!</p></a>
+         <a href="{{url_for('projects')}}" class="btn btn-outline-warning btn-lg rounded-pill">View Projects <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+       
+      </div>
+    </div>
+            </div>
+
+            <div class="col-12 mb-4">
+  <div class="card service-card border-0 shadow-lg p-1" style="min-height: 100%;">
+    <div class="card-body p-4">
+      <h3 class="fw-bold text-center" style="color: #f7b503;">Estate Management</h3>
+      <div class="clearfix">
+        <img src="/static/img/house10.jpg" class="img-fluid float-start me-4 mb-3" style="max-width: 400px; height: auto; object-fit: cover;" alt="Estate Management">
+
+        <p class="fs-5" style="text-align: justify;">
+          <span class="fw-bold">Crown Builders</span> offers professional estate management services designed to protect your property and maximize its value. 
+          Whether for residential estates, commercial complexes, or mixed-use properties, we provide tailored solutions to ensure seamless operations.Our estate management services cover:
+        </p>
+
+        <ul class="fs-5 mb-4">
+          <li><span class="fw-bold">Tenant Management:</span> Efficient onboarding, rent collection, and issue resolution.</li>
+          <li><span class="fw-bold">Property Maintenance:</span> Regular inspections and timely repairs.</li>
+          <li><span class="fw-bold">Security Coordination:</span> Monitoring and access control to keep estates safe.</li>
+          <li><span class="fw-bold">Financial Reporting:</span> Transparent tracking of expenses and income.</li>
+        </ul>
+
+        <p class="fs-5 text-justify">
+          We provide peace of mind for property owners and investors, ensuring your assets remain secure, functional, and profitable.
+        </p>
+
+        <p class="fs-5 fw-bold text-primary">Trust Crown Builders with your estate — your property is in capable hands.</p>
+      </div>
+    </div>
+  </div>
+            </div>
+
+            <div class="col-12 mb-4">
+  <div class="card service-card border-0 shadow-lg p-1" style="min-height: 100%;">
+    <div class="card-body p-4">
+      <h3 class="fw-bold text-center" style="color: #f7b503;">Land Surveying</h3>
+      <div class="clearfix">
+        <img src="/static/img/survey.jpg" class="img-fluid float-start me-4 mb-3" style="max-width: 400px; height: auto; object-fit: cover;" alt="Land Surveying in Nigeria">
+
+        <p class="fs-5" style="text-align: justify;">
+          Our licensed land surveyors bring accuracy and professionalism to every project. 
+          Using modern equipment and techniques, we help individuals and organizations properly evaluate and document their land boundaries and features. Our surveying services include:
+        </p>
+
+        
+        <ul class="fs-5 mb-4">
+          <li><span class="fw-bold">Boundary Demarcation:</span> Clearly define property limits to avoid disputes.</li>
+          <li><span class="fw-bold">Topographical Surveys:</span> Gather elevation data and landscape features for site planning.</li>
+          <li><span class="fw-bold">Site Layout & Mapping:</span> Accurate plotting for building and road construction.</li>
+          <li><span class="fw-bold">Legal Documentation:</span> Support land acquisition and registration processes.</li>
+        </ul>
+
+        <p class="fs-5 text-justify">
+          Our expertise is essential for property developers, architects, engineers, and real estate investors seeking reliable land data.
+        </p>
+
+        <a href="{{url_for('contact')}}"><p class="fs-5 fw-bold text-warning">Start your project on the right foundation — partner with Crown Builders for precise surveying.</p></a>
+      </div>
+    </div>
+  </div>
+            </div>
+
+            <div class="col-12 mb-4">
+  <div class="card service-card border-0 shadow-lg p-1" style="min-height: 100%;">
+    <div class="card-body p-4">
+      <h3 class="fw-bold text-center" style="color: #f7b503;">Increte Floor Stamping</h3>
+      <div class="clearfix">
+        <img src="/static/img/floor6.jpg" class="img-fluid float-start me-4 mb-3" style="max-width: 400px; height: auto; object-fit: cover;" alt="Increte Floor Stamping Nigeria">
+
+        <p class="fs-5" style="text-align: justify;">
+          Add elegance and durability to your outdoor and indoor surfaces with our <span class="fw-bold">Increte floor stamping services</span>. 
+          This decorative concrete finish replicates natural materials like stone, brick, or wood with the strength of concrete. Ideal for:
+        </p>
+
+        
+        <ul class="fs-5 mb-4">
+          <li><span class="fw-bold">Driveways & Walkways:</span> Stylish and slip-resistant surfaces.</li>
+          <li><span class="fw-bold">Patios & Courtyards:</span> Aesthetic flooring for entertaining spaces.</li>
+          <li><span class="fw-bold">Shopping Malls & Offices:</span> Durable and elegant concrete flooring.</li>
+          <li><span class="fw-bold">Custom Patterns:</span> Choose from a wide range of textures and colors.</li>
+        </ul>
+
+        <p class="fs-5 text-justify">
+          Our stamping process ensures long-lasting beauty with minimal maintenance — a smart upgrade for any property.
+        </p>
+
+        <a href="{{url_for('contact')}}"><p class="fs-5 fw-bold text-warning">Make a bold statement with Increte floors — contact us to explore design options.</p></a>
+         <a href="{{url_for('floor_stamping')}}" class="btn btn-outline-warning btn-lg rounded-pill">View Patterns of our increte floor stamping <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+            </div>
+
+            <div class="col-12 mb-4">
+  <div class="card service-card border-0 shadow-lg p-1" style="min-height: 100%;">
+    <div class="card-body p-4">
+      <h3 class="fw-bold text-center">Landscaping</h3>
+      <div class="clearfix">
+        <img src="/static/img/landscaping.png" class="img-fluid float-start me-4 mb-3" style="max-width: 400px; height: auto; object-fit: cover;" alt="Landscaping Services in Nigeria">
+
+        <p class="fs-5" style="text-align: justify;">
+          At <span class="fw-bold">Crown Builders Limited</span>, we transform outdoor areas into lush, relaxing, and functional spaces that blend beauty and purpose. 
+          Our landscaping services enhance the value and visual appeal of residential and commercial properties. We specialize in:
+        </p>
+
+        
+        <ul class="fs-5 mb-4">
+          <li><span class="fw-bold">Garden Design:</span> Creative layouts using native and exotic plants.</li>
+          <li><span class="fw-bold">Lawn Installation:</span> Natural or synthetic turf for a vibrant, green finish.</li>
+          <li><span class="fw-bold">Outdoor Lighting:</span> Energy-efficient fixtures to highlight landscapes at night.</li>
+          <li><span class="fw-bold">Water Features:</span> Fountains, ponds, and irrigation systems to elevate your space.</li>
+        </ul>
+
+        <p class="fs-5 text-justify">
+          Our designs are tailored to fit your vision, budget, and environmental conditions for long-term satisfaction.
+        </p>
+
+        <a href="{{url_for('contact')}}"><p class="fs-5 fw-bold text-warning">Let’s turn your outdoors into paradise. Schedule a landscaping consultation today.</p></a>
+        <a href="{{url_for('landscape')}}" class="btn btn-outline-warning btn-lg rounded-pill">View our Landscape designs<i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+            </div>
+
+
+
+
+           
+        </div>
+
+
+
+            <!-- <div class="col-12 mb-4">
+              <div class="card service-card border-0 shadow-lg p-1 gap-5 d-flex flex-column flex-md-row align-items-center">
+                <img src="/static/img/floor4.jpg" class="img-fluid rounded-start" style="width: 600px; height: 650px; object-fit: cover;" alt="Tech Empowerment">
+                <div class="card-body text-start p-4">
+                    <h3 class="fw-bold text-center">Land Survey</h3>
+                    <p class="fs-5 lh-lg" style="text-align: justify;">
+                        One of the standout features of our Solar Home Systems is their advanced lithium-ion
+                    battery storage, which ensures continuous power even in the absence of sunlight. This
+                    capability is essential for maintaining the operations of health facilities, where any
+                    power disruption could have serious consequences. Additionally, our systems are
+                    designed with scalability in mind, allowing for easy expansion as power demands
+                    increase, ensuring long-term adaptability.
+                    Our solar modules boast an efficiency of up to 21.33%, which means they deliver the
+                    highest power output with the lowest kilowatt-hour cost. This translates to a greater
+                    lifetime generating capacity, ensuring that your investment in solar energy provides
+                    maximum returns over time. Furthermore, our modules exhibit the lowest annual
+                    power attenuation, maintaining their performance over years of use.
+                    </p>
+                </div>
+              </div>
+            </div> -->
+
+             <!-- <div class="col-12 mb-4">
+            <div class="card service-card border-0 shadow-lg p-1 gap-5 d-flex flex-column flex-md-row align-items-center">
+                <img src="/static/img/floor5.jpg" class="img-fluid rounded-start" style="width: 600px; height: 650px; object-fit: cover;" alt="Tech Empowerment">
+                <div class="card-body text-start p-4">
+                    <h3 class="fw-bold text-center">Landscaping</h3>
+                    <p class="fs-5 lh-lg" style="text-align: justify;">
+                        One of the standout features of our Solar Home Systems is their advanced lithium-ion
+                      battery storage, which ensures continuous power even in the absence of sunlight. This
+                      capability is essential for maintaining the operations of health facilities, where any
+                      power disruption could have serious consequences. Additionally, our systems are
+                      designed with scalability in mind, allowing for easy expansion as power demands
+                      increase, ensuring long-term adaptability.
+                      Our solar modules boast an efficiency of up to 21.33%, which means they deliver the
+                      highest power output with the lowest kilowatt-hour cost. This translates to a greater
+                      lifetime generating capacity, ensuring that your investment in solar energy provides
+                      maximum returns over time. Furthermore, our modules exhibit the lowest annual
+                      power attenuation, maintaining their performance over years of use.
+                    </p>
+                </div>
+              </div>
+          </div> -->
+
+        <!-- <div class="col-12 mb-4">
+            <div class="card service-card border-0 shadow-lg p-1 gap-5 d-flex flex-column flex-md-row align-items-center">
+                <img src="/static/img/floor6.jpg" class="img-fluid rounded-start" style="width: 600px; height: 650px; object-fit: cover;" alt="Tech Empowerment">
+                <div class="card-body text-start p-4">
+                    <h3 class="fw-bold text-center">Estate Management</h3>
+                    <p class="fs-5 lh-lg" style="text-align: justify;">
+                        One of the standout features of our Solar Home Systems is their advanced lithium-ion
+                    battery storage, which ensures continuous power even in the absence of sunlight. This
+                    capability is essential for maintaining the operations of health facilities, where any
+                    power disruption could have serious consequences. Additionally, our systems are
+                    designed with scalability in mind, allowing for easy expansion as power demands
+                    increase, ensuring long-term adaptability.
+                    Our solar modules boast an efficiency of up to 21.33%, which means they deliver the
+                    highest power output with the lowest kilowatt-hour cost. This translates to a greater
+                    lifetime generating capacity, ensuring that your investment in solar energy provides
+                    maximum returns over time. Furthermore, our modules exhibit the lowest annual
+                    power attenuation, maintaining their performance over years of use.
+                    </p>
+                </div>
+            </div>
+      </div> -->
+
+      </div>
+            </div>
+
+
+      </div>
+
+
+
+  </section>
+</main>
+
+
+{% endblock content %}
